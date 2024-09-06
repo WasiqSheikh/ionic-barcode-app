@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ionic-barcode-app</string>
+    <string name="title_activity_main">ionic-barcode-app</string>
+    <string name="package_name">io.ionic.starter</string>
+    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="publishable_key">pk_test_51PjEKM08DLUKpffB2Jr13jRCDRal7gyAUxxOpT68DEdyDKpGm1F3c7BlhCDU4MqosdVWbXE6R59aC2jhGSREhRFb00mxxdYSgr</string>
+    <bool name="enable_google_pay">true</bool>
+    <string name="country_code">US</string>
+    <string name="merchant_display_name">Cart</string>
+    <bool name="google_pay_is_testing">true</bool>
+    <string name="google_pay_existing_payment_method_required">Existing payment method required for Google Pay</string>
+
+    <bool name="email_address_required">true</bool>
+    <bool name="phone_number_required">true</bool>
+    <bool name="billing_address_required">true</bool>
+    <string name="billing_address_format">Full</string>
+</resources>

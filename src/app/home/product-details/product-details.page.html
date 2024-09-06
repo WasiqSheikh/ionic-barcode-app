@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/products"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ product?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="product as product">
+    <img [src]="product?.cover" />
+    <ion-card-header>
+      <ion-card-title> {{ product?.name }} </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label color="medium">{{ product.description }}</ion-label>
+      <ion-row>
+        <div>
+
+        </div>
+        <ion-col class="quantity m-2">
+          <ion-col>
+            <ion-button fill="clear" color="primary" (click)="subtractQuantity()">
+              <ion-icon slot="icon-only" name="remove"></ion-icon></ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              <strong> {{quantity}} </strong>
+            </ion-text>
+          </ion-col>
+
+          <ion-col>
+            <ion-button fill="clear" color="primary" (click)="addQuantity()">
+              <ion-icon slot="icon-only" name="add"></ion-icon></ion-button>
+          </ion-col>
+        </ion-col>
+        <ion-col class="ion-text-end">
+          <div >
+            <ion-button #cartBtn expand="block" color="primary" (click)="AddToCart()">
+              Add To Cart
+            </ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

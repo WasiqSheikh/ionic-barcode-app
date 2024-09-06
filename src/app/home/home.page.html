@@ -1,20 +1,100 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+  <ion-toolbar class="Header">
+    <ion-label class="ion-text-start">
+      Hello User
+      <p>
+        Pakistan, Rawalpindi
+      </p>
+    </ion-label>
+
+    @if (totalItems > 0) {
+      <ion-button #cartIcon slot="end" routerLink="cart">
+        <ion-icon name = "cart-outline"></ion-icon>
+        <ion-badge color="light">
+          <ion-text color="tertiary">
+            {{totalItems}}
+          </ion-text>
+        </ion-badge>
+      </ion-button>
+    }
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-icon slot="end" name="cart-outline"></ion-icon>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-grid>
+    <ion-row class="ion-margin">
+      <ion-col size="6" routerLink = "products">
+        <ion-card color="light" (click) = "scanBarCode()">
+          <ion-thumbnail [style.background]= "'rgba(240,94,112,0.2)'">
+            <ion-icon name="scan-outline"></ion-icon>
+          </ion-thumbnail>
+          <ion-label>Scan Product barcode</ion-label>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" routerLink = "products">
+        <ion-card color="light" shape = "round">
+          <ion-thumbnail [style.background]= "'rgba(255,152,0, 0.2)'">
+            <ion-icon name="list-outline"></ion-icon>
+          </ion-thumbnail>
+          <ion-label>Products</ion-label>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-margin">
+      <ion-col size="4" routerLink = "products">
+        <ion-card color="light" shape = "round">
+          <ion-thumbnail [style.background]= "'rgba(76,175,80,0.2)'">
+            <ion-icon name="checkmark-outline"></ion-icon>
+          </ion-thumbnail>
+          <ion-label>Transactions</ion-label>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4" routerLink = "products">
+        <ion-card color="light" shape = "round">
+          <ion-thumbnail [style.background]= "'rgba(94,155,240, 0.2)'">
+            <ion-icon name="bag-handle-outline"></ion-icon>
+          </ion-thumbnail>
+          <ion-label>Orders</ion-label>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4" routerLink = "products">
+        <ion-card color="light" shape = "round">
+          <ion-thumbnail [style.background]= "'rgba(240,143,94,0.2)'">
+            <ion-icon name="scan-outline"></ion-icon>
+          </ion-thumbnail>
+          <ion-label>Scan QR & Pay</ion-label>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+
+  <!-- <ion-item>
+    <swiper-container
+    #swiper
+    (afterinit)="swiperReady()"
+    (slidechange)="swiperSlideChanged($event)"
+    [loop]="true"
+    [pagination]="true"
+  >
+    <swiper-slide *ngFor="let image of images">
+      <div class="swiper-zoom-container">
+        <img [src]="image" />
+      </div>
+    </swiper-slide>
+  </swiper-container>
+  </ion-item> -->
+
+  <ion-toast
+  [isOpen]="isToast"
+  [message]="toastData?.message"
+  [position]="'bottom'"
+  [color]="toastData?.color"
+  [duration]="3000"
+  (didDismiss)="isToast = false"
+></ion-toast>
 </ion-content>
